@@ -1,5 +1,16 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
+const ZONE_AMBIENCE = {
+  hero: { wind: 0.2, rain: 0.5, detail: 0.06, detailFrequency: 1200 },
+  about: { wind: 0.14, rain: 0.2, detail: 0.08, detailFrequency: 2200 },
+  skills: { wind: 0.3, rain: 0.12, detail: 0.06, detailFrequency: 900 },
+  projects: { wind: 0.08, rain: 0.08, detail: 0.05, detailFrequency: 180 },
+  education: { wind: 0.12, rain: 0.15, detail: 0.05, detailFrequency: 700 },
+  contact: { wind: 0.2, rain: 0.4, detail: 0.07, detailFrequency: 1500 },
+}
+
+const DEFAULT_AMBIENCE = ZONE_AMBIENCE.hero
+
 function createNoiseBuffer(context, seconds = 3) {
   const sampleRate = context.sampleRate
   const buffer = context.createBuffer(1, sampleRate * seconds, sampleRate)
@@ -13,7 +24,7 @@ function createNoiseBuffer(context, seconds = 3) {
   return buffer
 }
 
-export function useAmbientSound(theme) {
+export function useAmbientSound(theme, zoneId = 'hero') {
   const [enabled, setEnabled] = useState(false)
   const [volume, setVolumeState] = useState(0.35)
   const [supported, setSupported] = useState(true)
@@ -21,17 +32,53 @@ export function useAmbientSound(theme) {
   const masterRef = useRef(null)
   const rainGainRef = useRef(null)
   const windGainRef = useRef(null)
+  const detailGainRef = useRef(null)
+  const detailFilterRef = useRef(null)
   const themeRef = useRef(theme)
+  const zoneRef = useRef(zoneId)
 
   useEffect(() => {
     themeRef.current = theme
   }, [theme])
 
   useEffect(() => {
+    zoneRef.current = zoneId
+  }, [zoneId])
+
+  useEffect(() => {
     if (typeof window === 'undefined') return
     const AudioContext = window.AudioContext || window.webkitAudioContext
     if (!AudioContext) setSupported(false)
   }, [])
+
+  const applyMix = useCallback(
+    (context, currentTheme, currentVolume, currentZone) => {
+      if (!context) return
+      const ambience = ZONE_AMBIENCE[currentZone] ?? DEFAULT_AMBIENCE
+      const rain = currentTheme?.weather?.rainRate ?? 0
+      const wind = currentTheme?.weather?.windBias ?? 0.3
+      const now = context.currentTime
+
+      windGainRef.current?.gain.setTargetAtTime(
+        ambience.wind + wind * 0.18,
+        now,
+        1.2,
+      )
+      rainGainRef.current?.gain.setTargetAtTime(rain * ambience.rain, now, 0.8)
+      detailGainRef.current?.gain.setTargetAtTime(ambience.detail, now, 1.1)
+      detailFilterRef.current?.frequency.setTargetAtTime(
+        ambience.detailFrequency,
+        now,
+        1.2,
+      )
+      masterRef.current?.gain.setTargetAtTime(
+        currentVolume * 0.55,
+        now,
+        0.6,
+      )
+    },
+    [],
+  )
 
   const buildGraph = useCallback(() => {
     if (contextRef.current) return contextRef.current
@@ -75,6 +122,20 @@ export function useAmbientSound(theme) {
     rainFilter.connect(rainGain)
     rainGain.connect(master)
 
+    const detailSource = context.createBufferSource()
+    detailSource.buffer = buffer
+    detailSource.loop = true
+    detailSource.playbackRate.value = 0.72
+    const detailFilter = context.createBiquadFilter()
+    detailFilter.type = 'bandpass'
+    detailFilter.frequency.value = DEFAULT_AMBIENCE.detailFrequency
+    detailFilter.Q.value = 0.9
+    const detailGain = context.createGain()
+    detailGain.gain.value = 0
+    detailSource.connect(detailFilter)
+    detailFilter.connect(detailGain)
+    detailGain.connect(master)
+
     const lfo = context.createOscillator()
     lfo.frequency.value = 0.07
     const lfoGain = context.createGain()
@@ -84,27 +145,22 @@ export function useAmbientSound(theme) {
 
     windSource.start()
     rainSource.start()
+    detailSource.start()
     lfo.start()
 
     contextRef.current = context
     masterRef.current = master
     rainGainRef.current = rainGain
     windGainRef.current = windGain
+    detailGainRef.current = detailGain
+    detailFilterRef.current = detailFilter
     return context
   }, [])
 
   useEffect(() => {
     if (!enabled) return
-    const context = contextRef.current
-    const master = masterRef.current
-    if (!context || !master) return
-    const rain = theme?.weather?.rainRate ?? 0
-    const wind = theme?.weather?.windBias ?? 0.3
-    const now = context.currentTime
-    rainGainRef.current?.gain.setTargetAtTime(rain * 0.5, now, 0.8)
-    windGainRef.current?.gain.setTargetAtTime(0.18 + wind * 0.32, now, 1.2)
-    master.gain.setTargetAtTime(volume * 0.55, now, 0.6)
-  }, [enabled, theme, volume])
+    applyMix(contextRef.current, theme, volume, zoneId)
+  }, [applyMix, enabled, theme, volume, zoneId])
 
   const toggle = useCallback(async () => {
     if (enabled) {
@@ -128,14 +184,9 @@ export function useAmbientSound(theme) {
       setSupported(false)
       return
     }
-    const rain = themeRef.current?.weather?.rainRate ?? 0
-    const wind = themeRef.current?.weather?.windBias ?? 0.3
-    const now = context.currentTime
-    rainGainRef.current?.gain.setTargetAtTime(rain * 0.5, now, 0.8)
-    windGainRef.current?.gain.setTargetAtTime(0.18 + wind * 0.32, now, 1.2)
-    masterRef.current?.gain.setTargetAtTime(volume * 0.55, now, 1.2)
+    applyMix(context, themeRef.current, volume, zoneRef.current)
     setEnabled(true)
-  }, [buildGraph, enabled, volume])
+  }, [applyMix, buildGraph, enabled, volume])
 
   const setVolume = useCallback((next) => {
     setVolumeState(next)

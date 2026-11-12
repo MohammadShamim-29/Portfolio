@@ -37,7 +37,6 @@ export function App() {
   const { clock, dateLabel } = useBangladeshTime()
   const performance = usePerformanceTier()
   const reducedMotion = useReducedMotion()
-  const sound = useAmbientSound(theme)
   const effectiveReduced = reducedMotion || performance.tier === 'low'
   const tilt = usePointerTilt({ enabled: !effectiveReduced })
 
@@ -46,6 +45,7 @@ export function App() {
     [],
   )
   const { activeId, scrollToSection } = useActiveSection(sectionIds)
+  const sound = useAmbientSound(theme, activeId)
   const sectionMap = useMemo(
     () =>
       Object.fromEntries(
@@ -54,7 +54,7 @@ export function App() {
     [],
   )
 
-  useScrollProgress({ enabled: !reducedMotion })
+  useScrollProgress()
 
   const resetPreview = useCallback(() => {
     setPreview(getDefaultPreview())

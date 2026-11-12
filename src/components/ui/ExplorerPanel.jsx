@@ -277,8 +277,8 @@ export function ExplorerPanel({
             </label>
           </div>
           <p className="explorer-help">
-            Synthesised river and wind only. Nothing plays until you choose
-            Play.
+            Synthesised ambience follows the river journey. Nothing plays
+            until you choose Play.
           </p>
         </section>
 
@@ -292,7 +292,7 @@ export function ExplorerPanel({
           </div>
           <p className="explorer-help">
             {reducedMotion
-              ? 'Reduced motion is active. The scene is static and continuous animation is paused.'
+              ? 'Reduced motion is active. The landscape still follows your scroll, but continuous animation and particles are paused.'
               : 'Pointer tilt adds depth on desktop. Device tilt is optional and asks for permission on supported phones.'}
           </p>
           <button

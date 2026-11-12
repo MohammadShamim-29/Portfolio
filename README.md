@@ -42,9 +42,9 @@ Event data lives in `src/data/events.json`.
 
 ## Accessibility and performance
 
-- `prefers-reduced-motion` swaps in a static scene, pauses continuous animation and disables pointer tilt.
+- `prefers-reduced-motion` pauses continuous animation, particles and pointer tilt. The landscape still follows scroll so every journey section remains visible.
 - The performance tier can be automatic, full, balanced or light. Light mode disables WebGL and most particles while keeping the portfolio usable.
-- Ambient sound is muted by default. It only starts after an explicit Play action.
+- Ambient sound is muted by default. It only starts after an explicit Play action, and the synthesized mix changes with the journey zone.
 - The Explorer supports Escape to close, visible focus styles and a skip link.
 - No audio is required to use the site.
 

@@ -478,7 +478,7 @@
 }
 
 [data-reduced-motion="true"] .layer {
-  transform: translate3d(0, 0, 0) !important;
+  will-change: auto;
 }
 
 [data-tier="low"] .environment-fog,
