@@ -128,6 +128,30 @@
     radial-gradient(ellipse at 50% 66%, color-mix(in srgb, var(--haze) 28%, transparent), transparent 55%);
 }
 
+.zone-ground {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  height: 46vh;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    linear-gradient(
+      180deg,
+      transparent 0%,
+      color-mix(in srgb, var(--grass) 84%, transparent) 18%,
+      color-mix(in srgb, var(--paddy) 72%, var(--shadow)) 58%,
+      var(--shadow) 100%
+    );
+  transition: opacity 0.9s ease;
+}
+
+.app[data-zone="skills"] .zone-ground {
+  opacity: 1;
+}
+
 .layer {
   position: absolute;
   bottom: 0;
