@@ -1,0 +1,13 @@
+{
+  "note": "This is the only file allowed to contain Bengali script. The strings are decorative typography for specific event overlays, never interface labels. Remove an entry to remove its overlay text without touching animation code.",
+  "pohela-boishakh": {
+    "text": "শুভ নববর্ষ",
+    "translation": "Happy New Year",
+    "note": "Decorative Bengali typography for the Pohela Boishakh overlay."
+  },
+  "language-martyrs-day": {
+    "text": "আমার ভাইয়ের রক্তে রাঙানো একুশে ফেব্রুয়ারি",
+    "translation": "My brothers' blood-stained twenty-first of February",
+    "note": "Decorative quotation from the language movement song. Used with a respectful, commemorative tone."
+  }
+}

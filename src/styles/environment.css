@@ -1,0 +1,491 @@
+.environment {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #061014;
+}
+
+.static-scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--sky-top), var(--sky-bottom));
+}
+
+.static-sky {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      180deg,
+      var(--sky-top) 0%,
+      var(--sky-bottom) 54%,
+      var(--horizon) 66%,
+      var(--haze) 72%,
+      transparent 73%
+    );
+}
+
+.static-stars {
+  position: absolute;
+  inset: 0 0 42% 0;
+  opacity: calc(var(--star-opacity, 0) * 0.9);
+  background-image:
+    radial-gradient(circle, rgba(255, 248, 232, 0.8) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255, 248, 232, 0.55) 0 0.8px, transparent 1.2px);
+  background-size: 87px 83px, 131px 127px;
+  background-position: 10px 20px, 40px 60px;
+}
+
+.static-sun,
+.static-moon {
+  position: absolute;
+  width: clamp(4rem, 9vw, 9rem);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  filter: blur(0.2px);
+}
+
+.static-sun {
+  left: var(--static-sun-x, 50%);
+  top: var(--static-sun-y, 40%);
+  opacity: var(--static-sun-opacity, 1);
+  background:
+    radial-gradient(circle, var(--sun) 0 24%, var(--sun-glow) 25% 44%, transparent 70%);
+  box-shadow: 0 0 90px 30px color-mix(in srgb, var(--sun-glow) 28%, transparent);
+}
+
+.static-moon {
+  left: var(--static-moon-x, 50%);
+  top: var(--static-moon-y, 30%);
+  opacity: var(--static-moon-opacity, 0);
+  background: radial-gradient(circle, var(--star) 0 44%, transparent 70%);
+  box-shadow: 0 0 60px 12px color-mix(in srgb, var(--star) 18%, transparent);
+}
+
+.static-horizon {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 62vh;
+  min-height: 320px;
+}
+
+.static-water {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 38vh;
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--water) 60%, transparent),
+      var(--water-deep) 70%
+    ),
+    repeating-linear-gradient(
+      180deg,
+      transparent 0 13px,
+      color-mix(in srgb, var(--star) 8%, transparent) 14px,
+      transparent 15px
+    );
+  opacity: 0.65;
+}
+
+.static-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 50% 42%,
+      transparent 20%,
+      rgba(3, 8, 10, 0.16) 60%,
+      rgba(3, 8, 10, 0.58) 100%
+    );
+}
+
+.sky-shader {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.sky-shader.is-hidden {
+  display: none;
+}
+
+.sky-fallback {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse at 50% 66%, color-mix(in srgb, var(--haze) 28%, transparent), transparent 55%);
+}
+
+.layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 600vw;
+  height: auto;
+  pointer-events: none;
+  will-change: transform;
+  transform-origin: center bottom;
+}
+
+.layer-distant {
+  bottom: 37.5vh;
+  z-index: 2;
+  transform: translate3d(
+    calc(var(--journey-progress, 0) * -500vw + var(--tilt-x, 0) * -6px),
+    calc(var(--tilt-y, 0) * -4px),
+    0
+  );
+}
+
+.layer-middle {
+  bottom: 0;
+  z-index: 3;
+  transform: translate3d(
+    calc(var(--journey-progress, 0) * -500vw + var(--tilt-x, 0) * -12px),
+    calc(var(--tilt-y, 0) * -7px),
+    0
+  );
+}
+
+.layer-foreground {
+  bottom: 0;
+  z-index: 5;
+  transform: translate3d(
+    calc(var(--journey-progress, 0) * -500vw + var(--tilt-x, 0) * -20px),
+    calc(var(--tilt-y, 0) * -10px),
+    0
+  );
+}
+
+.ambient-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.environment-fog {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+  opacity: calc(var(--fog, 0) * 0.72);
+  background:
+    linear-gradient(
+      180deg,
+      transparent 34%,
+      color-mix(in srgb, var(--haze) 46%, transparent) 54%,
+      color-mix(in srgb, var(--haze) 72%, transparent) 74%,
+      transparent 100%
+    );
+  filter: blur(1px);
+}
+
+.environment-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse at 50% 44%,
+      transparent 28%,
+      rgba(2, 7, 9, 0.1) 58%,
+      rgba(2, 7, 9, 0.5) 100%
+    ),
+    linear-gradient(180deg, rgba(2, 7, 9, 0.24), transparent 18%, transparent 82%, rgba(2, 7, 9, 0.28));
+}
+
+.environment-grain {
+  position: absolute;
+  inset: 0;
+  z-index: 9;
+  pointer-events: none;
+  opacity: 0.16;
+  mix-blend-mode: soft-light;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.4) 0.5px, transparent 0.7px);
+  background-size: 3px 3px;
+}
+
+.decorations {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.decoration {
+  position: absolute;
+}
+
+.decoration-crescent {
+  top: 11vh;
+  right: 8vw;
+  width: clamp(4.5rem, 8vw, 8rem);
+  height: auto;
+  filter: drop-shadow(0 0 24px color-mix(in srgb, var(--accent) 28%, transparent));
+  opacity: 0.9;
+}
+
+.decoration-lanterns {
+  inset: 0;
+}
+
+.lantern {
+  position: absolute;
+  top: 0;
+  width: 2.1rem;
+  transform-origin: top center;
+  animation: lantern-sway 7s ease-in-out infinite;
+}
+
+.lantern-wire {
+  display: block;
+  width: 1px;
+  height: clamp(3rem, 8vh, 7rem);
+  margin: 0 auto;
+  background: color-mix(in srgb, var(--accent) 34%, transparent);
+}
+
+.lantern-body {
+  display: block;
+  width: 1.55rem;
+  height: 2.15rem;
+  margin: 0 auto;
+  border: 1px solid color-mix(in srgb, var(--accent) 65%, transparent);
+  border-radius: 45% 45% 38% 38%;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--accent) 65%, transparent), color-mix(in srgb, var(--accent-2) 24%, transparent));
+  box-shadow:
+    0 0 18px 5px color-mix(in srgb, var(--accent) 26%, transparent),
+    inset 0 0 8px color-mix(in srgb, var(--star) 20%, transparent);
+}
+
+.lantern-glow {
+  display: block;
+  width: 5rem;
+  height: 5rem;
+  margin: -3.6rem auto 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%);
+}
+
+.decoration-geometric {
+  inset: 0;
+  opacity: 0.13;
+  background-image:
+    repeating-linear-gradient(
+      45deg,
+      transparent 0 46px,
+      color-mix(in srgb, var(--accent) 30%, transparent) 47px,
+      transparent 48px 94px
+    ),
+    repeating-linear-gradient(
+      -45deg,
+      transparent 0 46px,
+      color-mix(in srgb, var(--accent) 24%, transparent) 47px,
+      transparent 48px 94px
+    );
+  mask-image: linear-gradient(180deg, transparent, #000 16%, #000 74%, transparent);
+}
+
+.decoration-lights {
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  border-top: 1px solid color-mix(in srgb, var(--accent) 20%, transparent);
+}
+
+.light-bulb {
+  position: absolute;
+  top: 1.5rem;
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow:
+    0 0 8px 3px color-mix(in srgb, var(--accent) 34%, transparent),
+    0 0 20px 8px color-mix(in srgb, var(--accent) 12%, transparent);
+  animation: bulb-twinkle 4s ease-in-out infinite;
+}
+
+.decoration-alpana {
+  bottom: -3rem;
+  left: -3rem;
+  width: clamp(15rem, 27vw, 25rem);
+  height: auto;
+  transform: rotate(-8deg);
+  opacity: 0.8;
+}
+
+.decoration-red-white {
+  inset: 0;
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  box-shadow:
+    inset 0 0 0 7px color-mix(in srgb, var(--star) 8%, transparent),
+    inset 0 0 0 8px color-mix(in srgb, var(--accent) 22%, transparent);
+}
+
+.decoration-flag {
+  bottom: 14vh;
+  left: 5vw;
+  opacity: 0.72;
+  transform: rotate(-4deg);
+}
+
+.flag-cloth {
+  position: relative;
+  display: block;
+  width: 4.5rem;
+  height: 2.8rem;
+  border-radius: 2px;
+  background: #1d6b45;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+.flag-disc {
+  position: absolute;
+  top: 50%;
+  left: 46%;
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+  background: #d64b3f;
+  transform: translate(-50%, -50%);
+}
+
+.decoration-minar,
+.decoration-memorial {
+  bottom: 6vh;
+  width: clamp(13rem, 24vw, 22rem);
+  height: auto;
+  opacity: 0.8;
+}
+
+.decoration-minar {
+  left: 4vw;
+}
+
+.decoration-memorial {
+  right: 4vw;
+}
+
+.decoration-flowers {
+  inset: 0;
+}
+
+.falling-flower {
+  position: absolute;
+  top: -3rem;
+  width: 0.55rem;
+  height: 0.42rem;
+  border-radius: 60% 40% 55% 45%;
+  background: color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 18%, transparent);
+  animation: flower-fall 8s linear infinite;
+}
+
+.decoration-confetti {
+  inset: 0;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -2rem;
+  width: 0.35rem;
+  height: 0.7rem;
+  opacity: 0.7;
+  animation: confetti-fall 7s linear infinite;
+}
+
+.decoration-golden-fields {
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 34vh;
+  background:
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--accent) 22%, transparent)),
+    repeating-linear-gradient(
+      92deg,
+      transparent 0 22px,
+      color-mix(in srgb, var(--paddy) 22%, transparent) 23px 24px,
+      transparent 25px 46px
+    );
+  mask-image: linear-gradient(180deg, transparent, #000 55%);
+  opacity: 0.72;
+}
+
+.decoration-pitha {
+  left: 0;
+  right: 0;
+  bottom: 8vh;
+  height: 8rem;
+}
+
+.pitha-shape {
+  position: absolute;
+  bottom: 0;
+  width: 3.4rem;
+  height: 2.2rem;
+  border-radius: 50% 50% 38% 38%;
+  background:
+    radial-gradient(ellipse at 50% 30%, color-mix(in srgb, var(--star) 55%, transparent), color-mix(in srgb, var(--accent) 40%, transparent));
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.24);
+  animation: pitha-float 6s ease-in-out infinite;
+}
+
+.decoration-river-fog {
+  inset: 38% 0 0 0;
+  background:
+    linear-gradient(180deg, transparent, color-mix(in srgb, var(--haze) 35%, transparent) 48%, transparent);
+  animation: fog-drift 18s ease-in-out infinite alternate;
+}
+
+.decoration-typography {
+  left: 50%;
+  bottom: 13vh;
+  transform: translateX(-50%);
+  max-width: 90vw;
+  text-align: center;
+}
+
+.decorative-bengali {
+  display: inline-block;
+  color: color-mix(in srgb, var(--accent) 82%, var(--star));
+  font-family: var(--font-bengali);
+  font-size: clamp(1.6rem, 5vw, 4.2rem);
+  line-height: 1.25;
+  text-shadow:
+    0 2px 18px rgba(0, 0, 0, 0.4),
+    0 0 50px color-mix(in srgb, var(--accent) 16%, transparent);
+  opacity: 0.9;
+}
+
+[data-reduced-motion="true"] .layer {
+  transform: translate3d(0, 0, 0) !important;
+}
+
+[data-tier="low"] .environment-fog,
+[data-tier="low"] .environment-grain {
+  display: none;
+}
+
+[data-tier="low"] .layer {
+  will-change: auto;
+}

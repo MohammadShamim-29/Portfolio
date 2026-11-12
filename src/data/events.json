@@ -1,0 +1,328 @@
+{
+  "version": 2,
+  "calendarNotes": "Bangladesh's lunar dates depend on the National Moon Sighting Committee. Confirmed entries below are tied to published announcements for 2026. Future lunar dates are astronomical estimates and are marked estimated. Never treat an estimated date as official. To correct a date, edit only the matching occurrence in this file.",
+  "categoryPriority": {
+    "national": 4,
+    "religious": 3,
+    "cultural": 2,
+    "seasonal": 1
+  },
+  "events": [
+    {
+      "id": "ramadan",
+      "name": "Ramadan",
+      "category": "religious",
+      "themeId": "ramadan",
+      "priority": 110,
+      "major": true,
+      "enabled": true,
+      "recurrence": "lunar",
+      "description": "The month of fasting, reflection and community. The daily cycle continues through Ramadan mornings, iftar sunsets and nights.",
+      "visual": {
+        "overlay": "ramadan",
+        "decorations": ["crescent", "lanterns", "geometric", "iftar"],
+        "accent": "#e5c07a"
+      },
+      "dates": [
+        {
+          "year": 2026,
+          "start": "2026-02-19",
+          "end": "2026-03-20",
+          "status": "confirmed",
+          "source": "The Daily Star, 19 Feb 2026 — Ramadan began after the National Moon Sighting Committee announcement."
+        },
+        {
+          "year": 2027,
+          "start": "2027-02-10",
+          "end": "2027-03-10",
+          "status": "estimated",
+          "source": "Astronomical estimate; subject to the National Moon Sighting Committee."
+        },
+        {
+          "year": 2028,
+          "start": "2028-01-30",
+          "end": "2028-02-28",
+          "status": "estimated",
+          "source": "Astronomical estimate; subject to the National Moon Sighting Committee."
+        }
+      ]
+    },
+    {
+      "id": "eid-ul-fitr",
+      "name": "Eid-ul-Fitr",
+      "category": "religious",
+      "themeId": "eid",
+      "priority": 120,
+      "major": true,
+      "enabled": true,
+      "recurrence": "lunar",
+      "description": "The festival that ends Ramadan, with morning prayers, new clothes, family visits and festive lights.",
+      "visual": {
+        "overlay": "eid",
+        "decorations": ["crescent", "festive-lights", "geometric"],
+        "accent": "#f0d18a"
+      },
+      "dates": [
+        {
+          "year": 2026,
+          "start": "2026-03-21",
+          "end": "2026-03-22",
+          "status": "confirmed",
+          "source": "The Daily Star, 19 Mar 2026 — Eid-ul-Fitr announced for 21 March after moon sighting."
+        },
+        {
+          "year": 2027,
+          "start": "2027-03-11",
+          "end": "2027-03-12",
+          "status": "estimated",
+          "source": "Astronomical estimate; subject to the National Moon Sighting Committee."
+        },
+        {
+          "year": 2028,
+          "start": "2028-02-29",
+          "end": "2028-03-01",
+          "status": "estimated",
+          "source": "Astronomical estimate; subject to the National Moon Sighting Committee."
+        }
+      ]
+    },
+    {
+      "id": "eid-ul-adha",
+      "name": "Eid-ul-Adha",
+      "category": "religious",
+      "themeId": "eid",
+      "priority": 120,
+      "major": true,
+      "enabled": true,
+      "recurrence": "lunar",
+      "description": "The festival of sacrifice, marked by morning prayers, qurbani and sharing with neighbours and the community.",
+      "visual": {
+        "overlay": "eid",
+        "decorations": ["crescent", "festive-lights", "geometric"],
+        "accent": "#f0d18a"
+      },
+      "dates": [
+        {
+          "year": 2026,
+          "start": "2026-05-28",
+          "end": "2026-05-29",
+          "status": "confirmed",
+          "source": "The Daily Star, 18 May 2026 — Zilhajj moon sighted, Eid-ul-Adha on 28 May."
+        },
+        {
+          "year": 2027,
+          "start": "2027-05-19",
+          "end": "2027-05-20",
+          "status": "estimated",
+          "source": "Astronomical estimate; subject to the National Moon Sighting Committee."
+        },
+        {
+          "year": 2028,
+          "start": "2028-05-07",
+          "end": "2028-05-08",
+          "status": "estimated",
+          "source": "Astronomical estimate; subject to the National Moon Sighting Committee."
+        }
+      ]
+    },
+    {
+      "id": "language-martyrs-day",
+      "name": "International Mother Language Day",
+      "category": "national",
+      "themeId": "language-martyrs-day",
+      "priority": 130,
+      "major": true,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "description": "Shaheed Dibash — a day of remembrance for the language movement and for every mother tongue.",
+      "annual": {
+        "start": "02-21",
+        "end": "02-21"
+      },
+      "visual": {
+        "overlay": "language-martyrs-day",
+        "decorations": ["shaheed-minar", "flowers", "decorative-typography"],
+        "accent": "#d9d2c3"
+      },
+      "source": "Fixed national observance, 21 February."
+    },
+    {
+      "id": "independence-day",
+      "name": "Independence Day",
+      "category": "national",
+      "themeId": "independence-day",
+      "priority": 125,
+      "major": true,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "description": "Bangladesh's Independence Day, observed with a respectful national mood.",
+      "annual": {
+        "start": "03-26",
+        "end": "03-26"
+      },
+      "visual": {
+        "overlay": "independence-day",
+        "decorations": ["flag", "national-landmarks"],
+        "accent": "#d64b3f"
+      },
+      "source": "Fixed national observance, 26 March."
+    },
+    {
+      "id": "pohela-boishakh",
+      "name": "Pohela Boishakh",
+      "category": "cultural",
+      "themeId": "pohela-boishakh",
+      "priority": 115,
+      "major": true,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "description": "The Bengali new year: red and white, alpana patterns, halkhata, fairs and new beginnings.",
+      "annual": {
+        "start": "04-14",
+        "end": "04-14"
+      },
+      "visual": {
+        "overlay": "pohela-boishakh",
+        "decorations": ["alpana", "red-white", "decorative-typography", "festive"],
+        "accent": "#e05243"
+      },
+      "source": "Fixed national observance in Bangladesh, 14 April."
+    },
+    {
+      "id": "victory-day",
+      "name": "Victory Day",
+      "category": "national",
+      "themeId": "victory-day",
+      "priority": 125,
+      "major": true,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "description": "Bijoy Dibosh — a respectful commemoration of 16 December.",
+      "annual": {
+        "start": "12-16",
+        "end": "12-16"
+      },
+      "visual": {
+        "overlay": "victory-day",
+        "decorations": ["flag", "national-landmarks"],
+        "accent": "#d64b3f"
+      },
+      "source": "Fixed national observance, 16 December."
+    },
+    {
+      "id": "nabanna",
+      "name": "Nabanna",
+      "category": "cultural",
+      "themeId": "nabanna",
+      "priority": 70,
+      "major": true,
+      "enabled": true,
+      "recurrence": "dated",
+      "description": "The harvest festival of the first new rice, kept at the opening of Ogrohayon.",
+      "visual": {
+        "overlay": "nabanna",
+        "decorations": ["golden-fields", "harvest", "pitha"],
+        "accent": "#dfa94b"
+      },
+      "dates": [
+        {
+          "year": 2026,
+          "start": "2026-11-16",
+          "end": "2026-11-16",
+          "status": "manual-override",
+          "source": "Bangla Academy revised calendar (Ogrohayon 1, 1433). Local observance can vary; verify before publishing."
+        },
+        {
+          "year": 2027,
+          "start": "2027-11-17",
+          "end": "2027-11-17",
+          "status": "estimated",
+          "source": "Estimated from the Bengali calendar; local observance can vary."
+        },
+        {
+          "year": 2028,
+          "start": "2028-11-16",
+          "end": "2028-11-16",
+          "status": "estimated",
+          "source": "Estimated from the Bengali calendar; local observance can vary."
+        }
+      ]
+    },
+    {
+      "id": "season-grishsho",
+      "name": "Grishsho",
+      "category": "seasonal",
+      "themeId": "grishsho",
+      "priority": 10,
+      "major": false,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "annual": { "start": "04-14", "end": "06-14" }
+    },
+    {
+      "id": "season-borsha",
+      "name": "Borsha",
+      "category": "seasonal",
+      "themeId": "borsha",
+      "priority": 10,
+      "major": false,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "annual": { "start": "06-15", "end": "08-15" }
+    },
+    {
+      "id": "season-shorot",
+      "name": "Shorot",
+      "category": "seasonal",
+      "themeId": "shorot",
+      "priority": 10,
+      "major": false,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "annual": { "start": "08-16", "end": "10-15" }
+    },
+    {
+      "id": "season-hemonto",
+      "name": "Hemonto",
+      "category": "seasonal",
+      "themeId": "hemonto",
+      "priority": 10,
+      "major": false,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "annual": { "start": "10-16", "end": "12-15" }
+    },
+    {
+      "id": "season-sheet",
+      "name": "Sheet",
+      "category": "seasonal",
+      "themeId": "sheet",
+      "priority": 10,
+      "major": false,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "annual": { "start": "12-16", "end": "02-14" }
+    },
+    {
+      "id": "season-boshonto",
+      "name": "Boshonto",
+      "category": "seasonal",
+      "themeId": "boshonto",
+      "priority": 10,
+      "major": false,
+      "enabled": true,
+      "recurrence": "annual-fixed",
+      "status": "confirmed",
+      "annual": { "start": "02-15", "end": "04-13" }
+    }
+  ]
+}

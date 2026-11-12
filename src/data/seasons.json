@@ -1,0 +1,185 @@
+{
+  "calendarConvention": "Fixed Gregorian approximations of the six Bengali seasons, using the widely used Bangladesh convention where Boishakh begins on 14 April. Bengali month lengths and the exact start of each season can vary by almanac, region and leap-year adjustment. Ranges are inclusive and are used for visual grading only; they are not a religious or official calendar.",
+  "seasons": [
+    {
+      "id": "grishsho",
+      "name": "Grishsho",
+      "english": "Summer",
+      "bengaliMonths": "Boishakh–Joishtho",
+      "start": { "month": 4, "day": 14 },
+      "end": { "month": 6, "day": 14 },
+      "description": "Hot, bright days, dusty roads, mango blossoms and the first rumble of pre-monsoon clouds.",
+      "grade": {
+        "tint": "#f2b45c",
+        "haze": "#f7d9a1",
+        "accent": "#e59a3a",
+        "weight": 0.2
+      },
+      "vegetation": {
+        "paddy": "#b7b24b",
+        "grass": "#9aa84c",
+        "leaf": "#5f8a45",
+        "bloom": 0.35
+      },
+      "weatherTendency": {
+        "clear": 0.36,
+        "cloudy": 0.24,
+        "rain": 0.18,
+        "storm": 0.12,
+        "fog": 0.0
+      },
+      "decorations": ["mango-leaves", "dust", "distant-storm"],
+      "details": ["Mango blossoms", "Dust haze", "Pre-monsoon clouds"]
+    },
+    {
+      "id": "borsha",
+      "name": "Borsha",
+      "english": "Monsoon",
+      "bengaliMonths": "Ashar–Srabon",
+      "start": { "month": 6, "day": 15 },
+      "end": { "month": 8, "day": 15 },
+      "description": "Low grey skies, warm rain, brimming rivers, shapla in the ponds and the smell of wet earth.",
+      "grade": {
+        "tint": "#5d8a86",
+        "haze": "#9db9ad",
+        "accent": "#79b8a5",
+        "weight": 0.3
+      },
+      "vegetation": {
+        "paddy": "#4f9a5a",
+        "grass": "#3f8c4b",
+        "leaf": "#2f6f42",
+        "bloom": 0.7
+      },
+      "weatherTendency": {
+        "clear": 0.1,
+        "cloudy": 0.22,
+        "rain": 0.5,
+        "storm": 0.15,
+        "fog": 0.03
+      },
+      "decorations": ["shapla", "rain", "wet-earth", "river-high"],
+      "details": ["Shapla", "Monsoon rain", "High river"]
+    },
+    {
+      "id": "shorot",
+      "name": "Shorot",
+      "english": "Autumn",
+      "bengaliMonths": "Bhadro–Ashwin",
+      "start": { "month": 8, "day": 16 },
+      "end": { "month": 10, "day": 15 },
+      "description": "Clear blue skies, white kash flowers along the roads and soft silver light on the water.",
+      "grade": {
+        "tint": "#c8d8d0",
+        "haze": "#e8eee4",
+        "accent": "#d9c79a",
+        "weight": 0.18
+      },
+      "vegetation": {
+        "paddy": "#a7b55b",
+        "grass": "#8ea35c",
+        "leaf": "#5b8450",
+        "bloom": 0.5
+      },
+      "weatherTendency": {
+        "clear": 0.5,
+        "cloudy": 0.2,
+        "rain": 0.16,
+        "storm": 0.09,
+        "fog": 0.05
+      },
+      "decorations": ["kash", "clear-skies", "migrating-birds"],
+      "details": ["Kash flowers", "Clear skies", "Migrating birds"]
+    },
+    {
+      "id": "hemonto",
+      "name": "Hemonto",
+      "english": "Late Autumn",
+      "bengaliMonths": "Kartik–Ogrohayon",
+      "start": { "month": 10, "day": 16 },
+      "end": { "month": 12, "day": 15 },
+      "description": "Golden paddy, harvest mornings, Nabanna and the first cool breeze after the rains.",
+      "grade": {
+        "tint": "#e1b05c",
+        "haze": "#f1d6a2",
+        "accent": "#d99a3e",
+        "weight": 0.26
+      },
+      "vegetation": {
+        "paddy": "#d2a73d",
+        "grass": "#a3a250",
+        "leaf": "#6e8444",
+        "bloom": 0.25
+      },
+      "weatherTendency": {
+        "clear": 0.46,
+        "cloudy": 0.18,
+        "rain": 0.1,
+        "storm": 0.05,
+        "fog": 0.21
+      },
+      "decorations": ["golden-fields", "harvest", "kash"],
+      "details": ["Golden fields", "Harvest", "Nabanna"]
+    },
+    {
+      "id": "sheet",
+      "name": "Sheet",
+      "english": "Winter",
+      "bengaliMonths": "Poush–Magh",
+      "start": { "month": 12, "day": 16 },
+      "end": { "month": 2, "day": 14 },
+      "description": "Cool mornings, river fog, date-palm sap pots, pitha stalls and pale gold afternoons.",
+      "grade": {
+        "tint": "#b9c8c6",
+        "haze": "#dce4df",
+        "accent": "#d8b77b",
+        "weight": 0.3
+      },
+      "vegetation": {
+        "paddy": "#b6ad6e",
+        "grass": "#8f9b71",
+        "leaf": "#59765a",
+        "bloom": 0.15
+      },
+      "weatherTendency": {
+        "clear": 0.32,
+        "cloudy": 0.16,
+        "rain": 0.04,
+        "storm": 0.02,
+        "fog": 0.46
+      },
+      "decorations": ["pitha-stall", "sap-pot", "river-fog", "winter-vegetables"],
+      "details": ["Pitha stalls", "Date-palm sap pots", "River fog"]
+    },
+    {
+      "id": "boshonto",
+      "name": "Boshonto",
+      "english": "Spring",
+      "bengaliMonths": "Falgun–Choitro",
+      "start": { "month": 2, "day": 15 },
+      "end": { "month": 4, "day": 13 },
+      "description": "Warm breezes, blossoming trees, red palash and the songs of returning birds.",
+      "grade": {
+        "tint": "#d9a06e",
+        "haze": "#f0c9a4",
+        "accent": "#dd8a5a",
+        "weight": 0.22
+      },
+      "vegetation": {
+        "paddy": "#a8b95b",
+        "grass": "#82a352",
+        "leaf": "#4f8a48",
+        "bloom": 0.85
+      },
+      "weatherTendency": {
+        "clear": 0.44,
+        "cloudy": 0.22,
+        "rain": 0.16,
+        "storm": 0.1,
+        "fog": 0.08
+      },
+      "decorations": ["blossom", "palash", "birdsong"],
+      "details": ["Blossoms", "Palash", "Returning birds"]
+    }
+  ]
+}

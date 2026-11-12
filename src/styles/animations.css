@@ -1,0 +1,473 @@
+.tree-sway,
+.tree-sway-slow,
+.grass-sway,
+.reed-sway,
+.paddy-sway,
+.kash-sway,
+.leaf-sway,
+.boat-bob,
+.wake,
+.wheel-spin,
+.rickshaw-roll,
+.bus-roll,
+.walker,
+.farmer-work,
+.cast-net,
+.bird-drift,
+.bird-wing,
+.window-light,
+.city-window,
+.steam,
+.float-slow,
+.blossom-drift,
+.bell {
+  transform-box: fill-box;
+}
+
+.tree-sway {
+  transform-origin: 50% 100%;
+  animation: tree-sway calc(8s - var(--wind, 0.3) * 3s) ease-in-out infinite;
+}
+
+.tree-sway-slow {
+  transform-origin: 50% 100%;
+  animation: tree-sway calc(12s - var(--wind, 0.3) * 5s) ease-in-out infinite;
+}
+
+.grass-sway {
+  transform-origin: 50% 100%;
+  animation: grass-sway calc(5.5s - var(--wind, 0.3) * 2s) ease-in-out infinite;
+}
+
+.reed-sway {
+  transform-origin: 50% 100%;
+  animation: reed-sway calc(7s - var(--wind, 0.3) * 3s) ease-in-out infinite;
+}
+
+.paddy-sway {
+  transform-origin: 50% 100%;
+  animation: paddy-sway calc(6s - var(--wind, 0.3) * 2.5s) ease-in-out infinite;
+}
+
+.kash-sway {
+  transform-origin: 50% 100%;
+  animation: kash-sway calc(7s - var(--wind, 0.3) * 2.6s) ease-in-out infinite;
+}
+
+.leaf-sway {
+  transform-origin: 50% 50%;
+  animation: leaf-sway 9s ease-in-out infinite;
+}
+
+.boat-bob {
+  transform-origin: 50% 50%;
+  animation: boat-bob 5.5s ease-in-out infinite;
+}
+
+.wake {
+  transform-origin: 50% 50%;
+  animation: wake 4s ease-in-out infinite;
+}
+
+.wheel-spin {
+  transform-origin: 50% 50%;
+  animation: wheel-spin 1.8s linear infinite;
+}
+
+.wheel-spin-slow {
+  animation-duration: 2.4s;
+}
+
+.rickshaw-roll {
+  animation: rickshaw-roll 8s ease-in-out infinite alternate;
+}
+
+.bus-roll {
+  animation: bus-roll 13s ease-in-out infinite alternate;
+}
+
+.walker {
+  animation: walker 6s ease-in-out infinite alternate;
+}
+
+.farmer-work {
+  transform-origin: 50% 100%;
+  animation: farmer-work 4.5s ease-in-out infinite;
+}
+
+.cast-net {
+  transform-origin: 50% 0%;
+  animation: cast-net 6s ease-in-out infinite;
+}
+
+.bird-drift {
+  animation: bird-drift 9s ease-in-out infinite alternate;
+}
+
+.bird-wing {
+  transform-origin: 50% 50%;
+  animation: bird-wing 0.8s ease-in-out infinite;
+}
+
+.window-light {
+  animation: window-light 8s ease-in-out infinite;
+}
+
+.city-window {
+  animation: city-window 11s ease-in-out infinite;
+}
+
+.steam {
+  animation: steam 5s ease-in-out infinite;
+}
+
+.float-slow {
+  transform-origin: 50% 50%;
+  animation: float-slow 7s ease-in-out infinite;
+}
+
+.blossom-drift {
+  transform-origin: 50% 50%;
+  animation: blossom-drift 10s ease-in-out infinite;
+}
+
+.bell {
+  transform-origin: 50% 50%;
+  animation: bell 3.2s ease-in-out infinite;
+}
+
+@keyframes tree-sway {
+  0%,
+  100% {
+    transform: rotate(-1.4deg);
+  }
+  50% {
+    transform: rotate(1.8deg);
+  }
+}
+
+@keyframes grass-sway {
+  0%,
+  100% {
+    transform: rotate(-3deg) skewX(1deg);
+  }
+  50% {
+    transform: rotate(4deg) skewX(-1.5deg);
+  }
+}
+
+@keyframes reed-sway {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(3.4deg);
+  }
+}
+
+@keyframes paddy-sway {
+  0%,
+  100% {
+    transform: rotate(-2.4deg) translateY(0);
+  }
+  50% {
+    transform: rotate(3.2deg) translateY(-1px);
+  }
+}
+
+@keyframes kash-sway {
+  0%,
+  100% {
+    transform: rotate(-2.8deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes leaf-sway {
+  0%,
+  100% {
+    transform: rotate(-8deg) translateY(0);
+  }
+  50% {
+    transform: rotate(10deg) translateY(-5px);
+  }
+}
+
+@keyframes boat-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-0.35deg);
+  }
+  50% {
+    transform: translateY(-2.4px) rotate(0.55deg);
+  }
+}
+
+@keyframes wake {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: scaleX(0.94);
+  }
+  50% {
+    opacity: 0.28;
+    transform: scaleX(1.04);
+  }
+}
+
+@keyframes wheel-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rickshaw-roll {
+  from {
+    transform: translateX(-6px);
+  }
+  to {
+    transform: translateX(12px);
+  }
+}
+
+@keyframes bus-roll {
+  from {
+    transform: translateX(-18px);
+  }
+  to {
+    transform: translateX(18px);
+  }
+}
+
+@keyframes walker {
+  from {
+    transform: translateX(-4px);
+  }
+  to {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes farmer-work {
+  0%,
+  100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(7deg) translateY(1px);
+  }
+}
+
+@keyframes cast-net {
+  0%,
+  100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(7deg);
+  }
+}
+
+@keyframes bird-drift {
+  from {
+    transform: translateX(-12px) translateY(0);
+  }
+  to {
+    transform: translateX(22px) translateY(-5px);
+  }
+}
+
+@keyframes bird-wing {
+  0%,
+  100% {
+    transform: scaleY(0.55);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes window-light {
+  0%,
+  100% {
+    opacity: 0.42;
+  }
+  42% {
+    opacity: 0.9;
+  }
+  56% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes city-window {
+  0%,
+  100% {
+    opacity: 0.34;
+  }
+  50% {
+    opacity: 0.78;
+  }
+}
+
+@keyframes steam {
+  0%,
+  100% {
+    opacity: 0.12;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 0.3;
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes float-slow {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-4px) rotate(1.5deg);
+  }
+}
+
+@keyframes blossom-drift {
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translate(18px, -12px) rotate(20deg);
+    opacity: 0.8;
+  }
+}
+
+@keyframes bell {
+  0%,
+  100% {
+    transform: rotate(-6deg);
+  }
+  50% {
+    transform: rotate(8deg);
+  }
+}
+
+@keyframes lantern-sway {
+  0%,
+  100% {
+    transform: rotate(-2.5deg);
+  }
+  50% {
+    transform: rotate(2.5deg);
+  }
+}
+
+@keyframes bulb-twinkle {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes flower-fall {
+  0% {
+    transform: translate3d(0, -4vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(5vw, 108vh, 0) rotate(320deg);
+    opacity: 0;
+  }
+}
+
+@keyframes confetti-fall {
+  0% {
+    transform: translate3d(0, -4vh, 0) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(-4vw, 108vh, 0) rotate(540deg);
+    opacity: 0;
+  }
+}
+
+@keyframes pitha-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-7px) rotate(1deg);
+  }
+}
+
+@keyframes fog-drift {
+  from {
+    transform: translateX(-3vw);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(3vw);
+    opacity: 0.9;
+  }
+}
+
+@keyframes scroll-pulse {
+  0%,
+  100% {
+    transform: scaleY(0.5);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes live-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--accent) 30%, transparent);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 0 5px transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+[data-reduced-motion="true"] *,
+[data-reduced-motion="true"] *::before,
+[data-reduced-motion="true"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}

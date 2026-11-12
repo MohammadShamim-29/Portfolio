@@ -1,0 +1,348 @@
+{
+  "meta": {
+    "siteName": "BANGLADESH 24",
+    "tagline": "A living portrait of Bangladesh, with Shamim's portfolio inside it.",
+    "timezone": "Asia/Dhaka",
+    "locale": "en-GB"
+  },
+  "owner": {
+    "name": "Md. Shamim",
+    "displayName": "Shamim",
+    "role": "Research Engineer Intern",
+    "location": "Bangladesh",
+    "availability": "Research Engineer Intern at BEPRC"
+  },
+  "hero": {
+    "eyebrow": "BANGLADESH 24",
+    "headline": "Md. Shamim",
+    "subheadline": "Computer Science and Engineering Graduate | Research Engineer Intern",
+    "description": "Computer Science and Engineering graduate with a strong foundation in machine learning, data analysis and software development, currently building energy demand forecasting models for Bangladesh as a Research Engineer Intern at BEPRC.",
+    "focus": [
+      "Machine Learning",
+      "Energy Demand Forecasting",
+      "Software Development",
+      "System Design"
+    ],
+    "primaryCta": "View Projects",
+    "secondaryCta": "Contact Me",
+    "note": "Scroll to travel from the river at dawn to the evening ghat."
+  },
+  "about": {
+    "kicker": "About",
+    "title": "The person behind the journey",
+    "body": [
+      "Computer Science and Engineering graduate with a strong foundation in machine learning, data analysis, and software development. Currently a Research Engineer Intern at the Bangladesh Energy and Power Research Council (BEPRC), developing machine learning-based energy demand forecasting models for Bangladesh. Experienced in data preprocessing, feature engineering, model training, evaluation, and academic research, with an interest in applying data-driven approaches to real-world challenges in energy and technology.",
+      "Enjoys understanding how software systems are built, and reading about technology, business, and a wide range of subjects to keep learning."
+    ],
+    "academicBackground": "BSc in Computer Science and Engineering from International University of Business Agriculture and Technology (2022 - 2026).",
+    "facts": [
+      { "label": "Based in", "value": "Bangladesh" },
+      {
+        "label": "Focus",
+        "value": "Machine Learning, Energy Demand Forecasting, Software Development, System Design"
+      },
+      {
+        "label": "Currently",
+        "value": "Research Engineer Intern at BEPRC"
+      },
+      { "label": "Languages", "value": "Bengali, English" }
+    ],
+    "interests": [
+      {
+        "label": "Professional interests",
+        "items": [
+          "Machine Learning",
+          "Energy demand forecasting",
+          "Predictive analytics",
+          "Software development",
+          "System design"
+        ]
+      },
+      {
+        "label": "Technology interests",
+        "items": [
+          "Time-series forecasting",
+          "Medical image classification",
+          "Deep learning",
+          "Full-stack web development"
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "kicker": "Skills",
+    "title": "Tools and disciplines",
+    "intro": "",
+    "groups": [
+      {
+        "id": "programming-languages",
+        "title": "Programming Languages",
+        "items": ["C", "C++", "Python", "JavaScript"]
+      },
+      {
+        "id": "ml-libraries",
+        "title": "Machine Learning Libraries",
+        "items": [
+          "NumPy",
+          "Pandas",
+          "Scikit-learn",
+          "Keras",
+          "TensorFlow",
+          "TorchVision",
+          "Matplotlib",
+          "Seaborn"
+        ]
+      },
+      {
+        "id": "machine-learning",
+        "title": "Machine Learning",
+        "items": [
+          "Supervised Learning",
+          "Classification",
+          "Model Training",
+          "Model Evaluation"
+        ]
+      },
+      {
+        "id": "data-preprocessing",
+        "title": "Data Preprocessing and Analysis",
+        "items": [
+          "Data Cleaning",
+          "Feature Extraction",
+          "Data Normalization"
+        ]
+      },
+      {
+        "id": "core-cs",
+        "title": "Core Computer Science",
+        "items": [
+          "Problem Solving",
+          "Data Structures and Algorithms",
+          "Object Oriented Programming",
+          "SQL"
+        ]
+      },
+      {
+        "id": "tools",
+        "title": "Tools and Platforms",
+        "items": [
+          "Windows",
+          "Ubuntu (Linux)",
+          "VS Code",
+          "Visual Studio 2022",
+          "Jupyter Notebook",
+          "Git",
+          "GitHub",
+          "LaTeX"
+        ]
+      },
+      {
+        "id": "professional",
+        "title": "Professional Skills",
+        "items": [
+          "Analytical Thinking",
+          "Problem Solving",
+          "Technical Documentation"
+        ]
+      }
+    ]
+  },
+  "projects": {
+    "kicker": "Projects",
+    "title": "Selected work",
+    "intro": "",
+    "items": [
+      {
+        "id": "energy-forecasting",
+        "category": "Research",
+        "status": "In progress",
+        "featured": true,
+        "title": "Energy Demand Forecasting for Bangladesh",
+        "description": "Machine learning-based energy demand forecasting models for Bangladesh, developed during the BEPRC research internship. Covers historical consumption patterns and trends across electricity, natural gas, coal and oil, time-series forecasting techniques, and external factors that influence prediction accuracy.",
+        "tags": ["Python", "Time-series forecasting", "Pandas", "Scikit-learn"],
+        "links": { "github": "", "paper": "" },
+        "placeholder": false
+      },
+      {
+        "id": "alzheimers-mri",
+        "category": "Machine Learning",
+        "featured": true,
+        "title": "Alzheimer's Disease Classification with T1-Weighted MRI Images",
+        "description": "Classification of Alzheimer's disease from 3D ADNI MRI scans. Curated 3,000 raw scans into 735 subject-level samples, applied a custom Python preprocessing pipeline (bias field correction, skull stripping, MNI152 alignment, intensity normalization), extracted 60 representative 2D slices per volume, and trained a custom CNN in PyTorch, with training and evaluation on Kaggle.",
+        "tags": ["Python", "PyTorch", "CNN", "Kaggle"],
+        "links": { "github": "TODO: add repository URL", "demo": "" },
+        "placeholder": false
+      },
+      {
+        "id": "covid-xray-ensemble",
+        "category": "Machine Learning",
+        "featured": false,
+        "title": "Ensemble Deep Learning for COVID-19 Chest X-ray Classification",
+        "description": "Ensemble CNN for multi-class medical image classification, trained on 21,000+ chest radiographs across 4 diagnostic categories, using Keras ImageDataGenerator for augmentation and preprocessing. Reached 91% validation accuracy with precision and recall optimization.",
+        "tags": ["Python", "Keras", "CNN"],
+        "links": { "github": "TODO: add repository URL", "demo": "" },
+        "placeholder": false
+      },
+      {
+        "id": "ckd-prediction",
+        "category": "Machine Learning",
+        "featured": false,
+        "title": "Chronic Kidney Disease Prediction Using Machine Learning",
+        "description": "Classification system predicting Chronic Kidney Disease from clinical data. Included data cleaning, preprocessing and exploratory data analysis to handle missing values and feature inconsistencies, and compared multiple models including Random Forest and ensemble stacking using accuracy and classification metrics.",
+        "tags": ["Python", "Scikit-learn", "Random Forest", "Ensemble stacking"],
+        "links": { "github": "TODO: add repository URL", "demo": "" },
+        "placeholder": false
+      },
+      {
+        "id": "toykart",
+        "category": "Software Development",
+        "featured": true,
+        "title": "ToyKart: E-Commerce Management System for Toy Retail",
+        "description": "Full-stack MERN e-commerce platform supporting product browsing, cart management, order tracking and secure online payments. Includes role-based administration modules for products, categories, inventory, shipping and refunds, plus email notifications and invoice generation.",
+        "tags": [
+          "MongoDB",
+          "Express.js",
+          "React.js",
+          "Node.js",
+          "JavaScript",
+          "SSLCommerz"
+        ],
+        "links": { "github": "TODO: add repository URL", "demo": "" },
+        "placeholder": false
+      },
+      {
+        "id": "loan-emi",
+        "category": "Software Development",
+        "featured": false,
+        "title": "Online Loan Application and EMI Payment System",
+        "description": "Full-stack web application for online loan applications and EMI payment management, with secure authentication, loan application workflows, admin approval features, Stripe (test mode) payment processing, and RESTful APIs backed by MongoDB.",
+        "tags": ["React", "Node.js", "Express.js", "MongoDB", "Stripe (test mode)"],
+        "links": { "github": "TODO: add repository URL", "demo": "" },
+        "placeholder": false
+      }
+    ]
+  },
+  "education": {
+    "kicker": "Education",
+    "title": "Learning",
+    "items": [
+      {
+        "id": "bsc-cse",
+        "degree": "Bachelor of Science in Computer Science and Engineering",
+        "institution": "International University of Business Agriculture and Technology",
+        "period": "May 2022 - May 2026",
+        "details": "CGPA 3.54 / 4.00",
+        "placeholder": false
+      },
+      {
+        "id": "hsc",
+        "degree": "Higher Secondary Certificate (HSC)",
+        "institution": "Gazipur Metropolitan College, Gazipur",
+        "period": "Passing year 2020",
+        "details": "GPA 5.00 / 5.00",
+        "placeholder": false
+      },
+      {
+        "id": "ssc",
+        "degree": "Secondary School Certificate (SSC)",
+        "institution": "Habirbari Union Sonar Bangla High School, Mymensingh",
+        "period": "Passing year 2017",
+        "details": "GPA 4.95 / 5.00",
+        "placeholder": false
+      }
+    ]
+  },
+  "certifications": {
+    "kicker": "Certifications",
+    "title": "Training",
+    "items": [
+      {
+        "id": "python-ml-training",
+        "title": "Python with Machine Learning Training Certificate",
+        "issuer": "EDGE (Enhancing Digital Government and Economy) Project, Bangladesh Computer Council, Ministry of Posts, Telecommunications and Information Technology",
+        "period": "2025",
+        "details": "80-hour hands-on training covering Python programming, machine learning fundamentals, model development, and practical applications.",
+        "placeholder": false
+      }
+    ]
+  },
+  "experience": {
+    "kicker": "Experience",
+    "title": "Work",
+    "items": [
+      {
+        "id": "beprc-intern",
+        "role": "Research Engineer Intern",
+        "organization": "Bangladesh Energy and Power Research Council (BEPRC)",
+        "location": "Bangladesh",
+        "period": "September 2026 - Present",
+        "highlights": [
+          "Developing machine learning-based energy demand forecasting models for Bangladesh.",
+          "Researching historical energy consumption patterns and trends across electricity, natural gas, coal and oil.",
+          "Exploring time-series forecasting techniques and external influencing factors to improve prediction accuracy.",
+          "Collecting, preprocessing and analyzing energy-related datasets for model development.",
+          "Reviewing research papers and preparing technical documentation and research presentations."
+        ],
+        "placeholder": false
+      }
+    ]
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Let's talk",
+    "body": "",
+    "email": "shamimahmed4929@gmail.com",
+    "github": "https://github.com/MohammadShamim-29",
+    "linkedin": "https://www.linkedin.com/in/md-shamim-5242b9258",
+    "cv": {
+      "label": "Download CV",
+      "file": "cv/Shamim_CV.pdf",
+      "url": "/cv/Shamim_CV.pdf"
+    },
+    "note": "Email, GitHub and LinkedIn links are active. Download the CV for a printable overview."
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "nav": "River",
+      "title": "Hero",
+      "place": "River at dawn",
+      "align": "left"
+    },
+    {
+      "id": "about",
+      "nav": "Village",
+      "title": "About",
+      "place": "Village and ponds",
+      "align": "right"
+    },
+    {
+      "id": "skills",
+      "nav": "Fields",
+      "title": "Skills",
+      "place": "Paddy fields",
+      "align": "left"
+    },
+    {
+      "id": "projects",
+      "nav": "City",
+      "title": "Projects",
+      "place": "Dhaka and the bridge",
+      "align": "right"
+    },
+    {
+      "id": "education",
+      "nav": "Town",
+      "title": "Education & Experience",
+      "place": "Riverside town and market",
+      "align": "left"
+    },
+    {
+      "id": "contact",
+      "nav": "Ghat",
+      "title": "Contact",
+      "place": "Evening riverbank ghat",
+      "align": "right"
+    }
+  ]
+}
