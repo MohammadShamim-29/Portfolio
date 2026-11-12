@@ -33,11 +33,13 @@ const SECTION_INDEX = {
 export function App() {
   const [preview, setPreview] = useState(() => getDefaultPreview())
   const [explorerOpen, setExplorerOpen] = useState(false)
+  const [motionOverride, setMotionOverride] = useState(false)
   const theme = useTheme(preview)
   const { clock, dateLabel } = useBangladeshTime()
   const performance = usePerformanceTier()
   const reducedMotion = useReducedMotion()
-  const effectiveReduced = reducedMotion || performance.tier === 'low'
+  const effectiveReduced =
+    (reducedMotion || performance.tier === 'low') && !motionOverride
   const tilt = usePointerTilt({ enabled: !effectiveReduced })
 
   const sectionIds = useMemo(
@@ -54,7 +56,7 @@ export function App() {
     [],
   )
 
-  useScrollProgress()
+  useScrollProgress({ sectionIds })
 
   const resetPreview = useCallback(() => {
     setPreview(getDefaultPreview())
@@ -169,7 +171,10 @@ export function App() {
         override={performance.override}
         setOverride={performance.setOverride}
         sound={sound}
-        reducedMotion={effectiveReduced}
+        reducedMotion={reducedMotion}
+        effectiveReduced={effectiveReduced}
+        motionOverride={motionOverride}
+        setMotionOverride={setMotionOverride}
         tilt={tilt}
       />
     </div>

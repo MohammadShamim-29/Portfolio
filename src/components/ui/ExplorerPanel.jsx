@@ -51,6 +51,9 @@ export function ExplorerPanel({
   setOverride,
   sound,
   reducedMotion,
+  effectiveReduced,
+  motionOverride,
+  setMotionOverride,
   tilt,
 }) {
   const closeRef = useRef(null)
@@ -288,13 +291,29 @@ export function ExplorerPanel({
               <MousePointer2 size={15} aria-hidden="true" />
               Motion
             </h3>
-            <span>{reducedMotion ? 'Reduced' : 'Full'}</span>
+            <span>{effectiveReduced ? 'Reduced' : 'Full'}</span>
           </div>
           <p className="explorer-help">
-            {reducedMotion
-              ? 'Reduced motion is active. The landscape still follows your scroll, but continuous animation and particles are paused.'
-              : 'Pointer tilt adds depth on desktop. Device tilt is optional and asks for permission on supported phones.'}
+            {tier === 'low' && reducedMotion && !motionOverride
+              ? 'Light performance and reduced motion pause continuous animation. Enable full motion for this visit, or choose Balanced or Full above.'
+              : tier === 'low' && !motionOverride
+                ? 'Light performance disables continuous animation. Choose Balanced or Full above to enable it.'
+                : reducedMotion && !motionOverride
+                  ? 'Your device requests reduced motion. The journey still follows scroll; enable full motion for this visit to restore continuous animation.'
+                  : motionOverride
+                    ? 'Full motion is enabled for this visit. Continuous animation and pointer tilt are active.'
+                    : 'Pointer tilt adds depth on desktop. Device tilt is optional and asks for permission on supported phones.'}
           </p>
+          {reducedMotion ? (
+            <button
+              type="button"
+              className={`option-button wide ${motionOverride ? 'is-active' : ''}`}
+              onClick={() => setMotionOverride(!motionOverride)}
+              aria-pressed={motionOverride}
+            >
+              {motionOverride ? 'Use reduced motion' : 'Enable full motion'}
+            </button>
+          ) : null}
           <button
             type="button"
             className={`option-button wide ${tilt.deviceTiltState === 'on' ? 'is-active' : ''}`}

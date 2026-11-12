@@ -10,6 +10,27 @@ const ZONE_AMBIENCE = {
 }
 
 const DEFAULT_AMBIENCE = ZONE_AMBIENCE.hero
+const BIRD_ZONES = new Set(['about', 'skills', 'education'])
+
+function scheduleChirp(context, destination) {
+  if (!destination || context.state !== 'running') return
+  const now = context.currentTime + 0.02
+  const oscillator = context.createOscillator()
+  const gain = context.createGain()
+  const base = 1700 + Math.random() * 1100
+
+  oscillator.type = 'sine'
+  oscillator.frequency.setValueAtTime(base, now)
+  oscillator.frequency.exponentialRampToValueAtTime(base * 1.45, now + 0.07)
+  oscillator.frequency.exponentialRampToValueAtTime(base * 0.92, now + 0.19)
+  gain.gain.setValueAtTime(0.0001, now)
+  gain.gain.exponentialRampToValueAtTime(0.04, now + 0.03)
+  gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.24)
+  oscillator.connect(gain)
+  gain.connect(destination)
+  oscillator.start(now)
+  oscillator.stop(now + 0.26)
+}
 
 function createNoiseBuffer(context, seconds = 3) {
   const sampleRate = context.sampleRate
@@ -161,6 +182,22 @@ export function useAmbientSound(theme, zoneId = 'hero') {
     if (!enabled) return
     applyMix(contextRef.current, theme, volume, zoneId)
   }, [applyMix, enabled, theme, volume, zoneId])
+
+  useEffect(() => {
+    if (!enabled || !BIRD_ZONES.has(zoneId)) return undefined
+    const context = contextRef.current
+    if (!context) return undefined
+
+    let timeoutId = 0
+    const schedule = () => {
+      timeoutId = window.setTimeout(() => {
+        scheduleChirp(context, masterRef.current)
+        schedule()
+      }, 2600 + Math.random() * 3400)
+    }
+    schedule()
+    return () => window.clearTimeout(timeoutId)
+  }, [enabled, zoneId])
 
   const toggle = useCallback(async () => {
     if (enabled) {
