@@ -56,7 +56,6 @@ export function Environment({
     >
       <StaticScene theme={theme} />
       {useWebGL ? <SkyWaterShader theme={theme} /> : null}
-      <div className="zone-ground" />
       <DistantLayer />
       <MiddleLayer seasonId={theme?.season?.id} />
       <ForegroundLayer

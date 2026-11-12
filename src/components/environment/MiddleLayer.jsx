@@ -114,11 +114,6 @@ export function MiddleLayer({ seasonId = 'borsha' }) {
         <Farmer x={2730} y={828} scale={1.25} delay={0.8} />
         <Person x={2100} y={846} scale={1.1} delay={1.7} />
         <Person x={2890} y={836} scale={1.05} flip delay={0.6} />
-        <TinHouse x={2820} y={808} scale={1.05} delay={0.5} />
-        <MudHouse x={2920} y={816} scale={0.95} flip />
-        <PalmTree x={2780} y={812} scale={1.25} delay={0.9} />
-        <BetelPalm x={2970} y={818} scale={1.15} flip delay={1.4} />
-        <Person x={2870} y={870} scale={1.1} delay={0.7} />
         <path d="M2050 878 C 2200 870 2400 872 2600 880 C 2760 886 2880 882 2960 876" fill="none" stroke="var(--shadow)" strokeWidth="2" opacity="0.16" />
       </g>
 

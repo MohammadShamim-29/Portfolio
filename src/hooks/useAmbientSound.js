@@ -16,11 +16,11 @@ const ZONE_AMBIENCE = {
     detailFrequency: 3200,
   },
   skills: {
-    wind: 0.08,
+    wind: 0.36,
     water: 0,
-    rain: 0,
-    detail: 0.012,
-    detailFrequency: 3000,
+    rain: 0.08,
+    detail: 0.03,
+    detailFrequency: 1400,
   },
   projects: {
     wind: 0.08,
