@@ -44,8 +44,9 @@ Event data lives in `src/data/events.json`.
 
 - `prefers-reduced-motion` pauses continuous animation, particles and pointer tilt. The landscape still follows scroll so every journey section remains visible. The Explorer can enable full motion for the current visit.
 - The journey progress is anchored to section starts, so each section centers its matching landscape zone.
+- Each zone shifts the sky, water, haze and vegetation palette toward its own mood, so the river, village, fields, city, town and ghat feel distinct.
 - The performance tier can be automatic, full, balanced or light. Light mode disables WebGL and most particles while keeping the portfolio usable.
-- Ambient sound is muted by default. It only starts after an explicit Play action, and the synthesized mix changes with the journey zone, including calm village birds.
+- Ambient sound is muted by default. It only starts after an explicit Play action, and the synthesized mix changes with the journey zone: river water, calm village birds, field wind, city rumble, town hum and ghat water.
 - The Explorer supports Escape to close, visible focus styles and a skip link.
 - No audio is required to use the site.
 

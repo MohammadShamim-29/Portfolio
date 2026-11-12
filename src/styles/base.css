@@ -144,6 +144,19 @@ canvas {
   mix-blend-mode: multiply;
 }
 
+.zone-tint {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background-color: var(--zone-tint, transparent);
+  opacity: var(--zone-tint-opacity, 0);
+  mix-blend-mode: soft-light;
+  transition:
+    background-color 0.9s ease,
+    opacity 0.9s ease;
+}
+
 .is-placeholder {
   color: var(--muted, #d8d3c5);
   font-style: italic;

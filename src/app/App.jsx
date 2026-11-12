@@ -20,6 +20,7 @@ import { useReducedMotion } from '../hooks/useReducedMotion.js'
 import { useScrollProgress } from '../hooks/useScrollProgress.js'
 import { useTheme } from '../hooks/useTheme.js'
 import { getDefaultPreview } from '../engines/themeEngine.js'
+import { resolveZoneTheme } from '../engines/zoneThemeEngine.js'
 
 const SECTION_INDEX = {
   hero: '01',
@@ -47,6 +48,10 @@ export function App() {
     [],
   )
   const { activeId, scrollToSection } = useActiveSection(sectionIds)
+  const zoneTheme = useMemo(
+    () => resolveZoneTheme(theme, activeId),
+    [theme, activeId],
+  )
   const sound = useAmbientSound(theme, activeId)
   const sectionMap = useMemo(
     () =>
@@ -67,11 +72,11 @@ export function App() {
 
   useEffect(() => {
     const meta = document.querySelector('meta[name="theme-color"]')
-    if (meta && theme?.palette?.skyTop) {
-      meta.setAttribute('content', theme.palette.skyTop)
+    if (meta && zoneTheme?.palette?.skyTop) {
+      meta.setAttribute('content', zoneTheme.palette.skyTop)
     }
     document.documentElement.style.colorScheme = 'dark'
-  }, [theme])
+  }, [zoneTheme])
 
   useEffect(() => {
     if (!explorerOpen) return undefined
@@ -85,10 +90,11 @@ export function App() {
   return (
     <div
       className="app"
-      style={theme?.cssVars}
+      style={zoneTheme?.cssVars}
       data-phase={theme?.phase}
       data-season={theme?.season?.id}
       data-event={theme?.eventId ?? 'normal'}
+      data-zone={activeId}
       data-tier={performance.tier}
       data-reduced-motion={effectiveReduced ? 'true' : 'false'}
     >
@@ -97,12 +103,13 @@ export function App() {
       </a>
 
       <Environment
-        theme={theme}
+        theme={zoneTheme}
         tier={performance.tier}
         reducedMotion={effectiveReduced}
       />
 
       <div className="scene-tint" aria-hidden="true" />
+      <div className="zone-tint" aria-hidden="true" />
       <div className="journey-progress-bar" aria-hidden="true">
         <span />
       </div>
