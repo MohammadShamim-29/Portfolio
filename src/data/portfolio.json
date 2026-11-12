@@ -19,7 +19,6 @@
     "description": "Computer Science and Engineering graduate with a strong foundation in machine learning, data analysis and software development, currently building energy demand forecasting models for Bangladesh as a Research Engineer Intern at BEPRC.",
     "focus": [
       "Machine Learning",
-      "Energy Demand Forecasting",
       "Software Development",
       "System Design"
     ],
@@ -52,7 +51,6 @@
         "label": "Professional interests",
         "items": [
           "Machine Learning",
-          "Energy demand forecasting",
           "Predictive analytics",
           "Software development",
           "System design"
@@ -61,7 +59,7 @@
       {
         "label": "Technology interests",
         "items": [
-          "Time-series forecasting",
+          "Machine Learning",
           "Medical image classification",
           "Deep learning",
           "Full-stack web development"
